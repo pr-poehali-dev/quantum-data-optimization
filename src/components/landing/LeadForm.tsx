@@ -10,14 +10,32 @@ interface LeadFormProps {
   onClose: () => void
 }
 
+const SEND_LEAD_URL = "https://functions.poehali.dev/697c53e9-66f3-4fd3-a7ee-c23fa0177cc0"
+
 export default function LeadForm({ open, onClose }: LeadFormProps) {
   const [name, setName] = useState("")
   const [phone, setPhone] = useState("")
   const [sent, setSent] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState("")
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSent(true)
+    setLoading(true)
+    setError("")
+    try {
+      const res = await fetch(SEND_LEAD_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, phone }),
+      })
+      if (!res.ok) throw new Error()
+      setSent(true)
+    } catch {
+      setError("Не удалось отправить заявку. Попробуйте ещё раз.")
+    } finally {
+      setLoading(false)
+    }
   }
 
   const handleClose = () => {
@@ -81,12 +99,14 @@ export default function LeadForm({ open, onClose }: LeadFormProps) {
                       className="bg-neutral-800 border-neutral-600 text-white placeholder:text-neutral-500 focus:border-[#FF4D00]"
                     />
                   </div>
+                  {error && <p className="text-red-400 text-sm">{error}</p>}
                   <Button
                     type="submit"
-                    className="w-full mt-2 bg-[#FF4D00] hover:bg-[#e64400] text-white border-0"
+                    disabled={loading}
+                    className="w-full mt-2 bg-[#FF4D00] hover:bg-[#e64400] text-white border-0 disabled:opacity-60"
                     size="lg"
                   >
-                    Получить аудит бесплатно
+                    {loading ? "Отправляем..." : "Получить аудит бесплатно"}
                   </Button>
                 </form>
               </>

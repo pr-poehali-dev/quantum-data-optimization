@@ -90,13 +90,7 @@ export default function Section({ id, title, subtitle, content, isActive, showBu
           )}
 
           {showButton && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isActive ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="mt-10"
-              style={{ pointerEvents: isActive ? 'auto' : 'none' }}
-            >
+            <div className="mt-10">
               <Button
                 size="lg"
                 className="text-white border-0 font-semibold px-8 py-6 text-base"
@@ -105,7 +99,7 @@ export default function Section({ id, title, subtitle, content, isActive, showBu
               >
                 {buttonText}
               </Button>
-            </motion.div>
+            </div>
           )}
         </div>
 

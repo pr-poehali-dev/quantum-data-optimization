@@ -20,6 +20,8 @@ export const sections = [
     id: 'about',
     title: 'Почему мы?',
     content: 'Настраиваем и ведём рекламу в Яндекс.Директ так, чтобы каждый рубль приносил заявки, а не сливался в пустоту.',
+    showButton: true,
+    buttonText: 'Оставить заявку',
     image: 'https://cdn.poehali.dev/projects/3ee7dd44-2af7-4386-85d7-f18328f27510/files/7d2e3016-4528-4a42-b434-ea53c6c05433.jpg',
     accent: '#FF6B35',
     stats: [
@@ -32,6 +34,8 @@ export const sections = [
     id: 'features',
     title: 'Что мы делаем',
     content: 'Аудит, сбор семантики, настройку кампаний, A/B-тесты объявлений и ежедневную оптимизацию ставок ради низкой цены заявки.',
+    showButton: true,
+    buttonText: 'Оставить заявку',
     image: 'https://cdn.poehali.dev/projects/3ee7dd44-2af7-4386-85d7-f18328f27510/files/ebee9f51-85ff-4121-a92a-73f65bbbd9b9.jpg',
     accent: '#FF4D00',
     stats: [
@@ -44,6 +48,8 @@ export const sections = [
     id: 'testimonials',
     title: 'Результаты клиентов',
     content: 'Снижаем стоимость заявки в 2–3 раза и масштабируем поток обращений — от первых лидов до стабильного потока продаж.',
+    showButton: true,
+    buttonText: 'Оставить заявку',
     image: 'https://cdn.poehali.dev/projects/3ee7dd44-2af7-4386-85d7-f18328f27510/files/687baf27-562c-4b8e-8a8d-22a6c2583905.jpg',
     accent: '#FF6B35',
     stats: [

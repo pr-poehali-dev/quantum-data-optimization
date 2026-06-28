@@ -20,6 +20,12 @@ const contacts = [
     value: "narzan2006@yandex.ru",
     href: "mailto:narzan2006@yandex.ru",
   },
+  {
+    icon: "MessageCircle",
+    label: "WhatsApp",
+    value: "+7 938 075-44-24",
+    href: "https://wa.me/79380754424",
+  },
 ]
 
 export default function ContactSection({ isActive, onButtonClick }: ContactSectionProps) {

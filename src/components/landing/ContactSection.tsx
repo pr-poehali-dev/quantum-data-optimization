@@ -106,6 +106,11 @@ export default function ContactSection({ isActive, onButtonClick }: ContactSecti
           </Button>
         </motion.div>
       </div>
+
+      <div className="absolute bottom-0 left-0 right-0 z-10 border-t border-white/5 px-8 md:px-16 lg:px-24 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+        <span className="text-neutral-600 text-xs">© {new Date().getFullYear()} ООО «DANA-GROUP». Все права защищены.</span>
+        <span className="text-neutral-700 text-xs">Реклама в Яндекс.Директ</span>
+      </div>
     </section>
   )
 }

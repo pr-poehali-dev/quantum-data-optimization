@@ -2,7 +2,7 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import type { SectionProps } from "@/types"
 
-export default function Section({ id, title, subtitle, content, isActive, showButton, buttonText, onButtonClick, image, accent, stats }: SectionProps) {
+export default function Section({ id, title, subtitle, content, isActive, showButton, buttonText, onButtonClick, image, accent, stats, bullets }: SectionProps) {
   const accentColor = accent || '#FF4D00'
 
   return (
@@ -55,6 +55,22 @@ export default function Section({ id, title, subtitle, content, isActive, showBu
             >
               {content}
             </motion.p>
+          )}
+
+          {bullets && (
+            <motion.ul
+              className="mt-6 space-y-2"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isActive ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              {bullets.map((bullet, i) => (
+                <li key={i} className="flex items-center gap-3 text-neutral-300">
+                  <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: accentColor }} />
+                  {bullet}
+                </li>
+              ))}
+            </motion.ul>
           )}
 
           {stats && (

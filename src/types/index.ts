@@ -10,6 +10,7 @@ export interface Section {
   image?: string
   accent?: string
   stats?: { value: string; label: string }[]
+  bullets?: string[]
 }
 
 export interface SectionProps extends Section {

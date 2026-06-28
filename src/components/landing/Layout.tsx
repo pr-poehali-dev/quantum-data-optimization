@@ -24,7 +24,7 @@ export default function Layout({ children }: LayoutProps) {
               <span className="text-white font-bold text-sm">D</span>
             </div>
             <span className="text-white font-semibold text-sm tracking-wide">ООО «DANA-GROUP»</span>
-            <span className="text-neutral-500 text-sm hidden sm:inline">— Digital Marketing Agency</span>
+            <span className="text-sm hidden sm:inline" style={{ background: "linear-gradient(90deg, #FF4D00, #ff7a00)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>— Digital Marketing Agency</span>
           </div>
         </div>
         {children}

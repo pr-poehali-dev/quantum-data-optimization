@@ -95,7 +95,7 @@ export default function Section({ id, title, subtitle, content, isActive, showBu
                 size="lg"
                 className="text-white border-0 font-semibold px-8 py-6 text-base"
                 style={{ background: `linear-gradient(135deg, ${accentColor}, #ff7a00)` }}
-                onClick={onButtonClick}
+                onClick={() => { console.log('button clicked', id); onButtonClick?.(); }}
               >
                 {buttonText}
               </Button>

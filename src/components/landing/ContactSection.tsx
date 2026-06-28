@@ -7,6 +7,8 @@ interface ContactSectionProps {
   onButtonClick?: () => void
 }
 
+const CONTACT_IMAGE = "https://cdn.poehali.dev/projects/3ee7dd44-2af7-4386-85d7-f18328f27510/files/4802f1de-7cca-4f84-947d-c87a86360f0b.jpg"
+
 const contacts = [
   {
     icon: "Phone",
@@ -31,7 +33,10 @@ const contacts = [
 export default function ContactSection({ isActive, onButtonClick }: ContactSectionProps) {
   return (
     <section className="relative h-screen w-full snap-start flex flex-col justify-center overflow-hidden">
-      <div className="absolute inset-0 z-0" style={{ background: "linear-gradient(135deg, #000000 50%, #FF4D0022 100%)" }} />
+      <div className="absolute inset-0 z-0">
+        <img src={CONTACT_IMAGE} alt="" className="w-full h-full object-cover opacity-20" />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(0,0,0,0.95) 40%, #FF4D0022 100%)" }} />
+      </div>
       <div className="absolute left-0 top-0 bottom-0 w-1" style={{ background: "linear-gradient(to bottom, transparent, #FF4D00, transparent)" }} />
 
       <div className="relative z-10 px-8 md:px-16 lg:px-24 max-w-4xl">

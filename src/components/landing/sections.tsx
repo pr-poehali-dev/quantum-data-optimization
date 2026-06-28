@@ -32,6 +32,7 @@ export const sections = [
     id: 'features',
     title: 'Что мы делаем',
     content: 'Аудит, сбор семантики, настройку кампаний, A/B-тесты объявлений и ежедневную оптимизацию ставок ради низкой цены заявки.',
+    image: 'https://cdn.poehali.dev/projects/3ee7dd44-2af7-4386-85d7-f18328f27510/files/ebee9f51-85ff-4121-a92a-73f65bbbd9b9.jpg',
     accent: '#FF4D00',
     stats: [
       { value: 'Аудит', label: 'бесплатно' },
@@ -57,6 +58,7 @@ export const sections = [
     content: 'Оставьте заявку — проведём бесплатный аудит вашей ниши и составим прогноз заявок и бюджета на Яндекс.Директ.',
     showButton: true,
     buttonText: 'Заказать аудит',
+    image: 'https://cdn.poehali.dev/projects/3ee7dd44-2af7-4386-85d7-f18328f27510/files/588a27b2-bade-40cc-b8f6-4904d4ecedfc.jpg',
     accent: '#FF4D00',
     stats: [
       { value: '0 ₽', label: 'стоимость аудита' },

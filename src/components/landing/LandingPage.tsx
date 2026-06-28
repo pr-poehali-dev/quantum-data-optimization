@@ -45,40 +45,42 @@ export default function LandingPage() {
   }
 
   return (
-    <Layout>
-      <nav className="fixed top-0 right-0 h-screen flex flex-col justify-center z-30 p-4">
-        {[...sections, { id: 'contacts' }].map((section, index) => (
-          <button
-            key={section.id}
-            className={`w-3 h-3 rounded-full my-2 transition-all ${
-              index === activeSection ? 'bg-white scale-150' : 'bg-gray-600'
-            }`}
-            onClick={() => handleNavClick(index)}
-          />
-        ))}
-      </nav>
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-0.5 bg-white origin-left z-30"
-        style={{ scaleX }}
-      />
-      <div
-        ref={containerRef}
-        className="h-full overflow-y-auto snap-y snap-mandatory"
-      >
-        {sections.map((section, index) => (
-          <Section
-            key={section.id}
-            {...section}
-            isActive={index === activeSection}
+    <>
+      <Layout>
+        <nav className="fixed top-0 right-0 h-screen flex flex-col justify-center z-30 p-4">
+          {[...sections, { id: 'contacts' }].map((section, index) => (
+            <button
+              key={section.id}
+              className={`w-3 h-3 rounded-full my-2 transition-all ${
+                index === activeSection ? 'bg-white scale-150' : 'bg-gray-600'
+              }`}
+              onClick={() => handleNavClick(index)}
+            />
+          ))}
+        </nav>
+        <motion.div
+          className="fixed top-0 left-0 right-0 h-0.5 bg-white origin-left z-30"
+          style={{ scaleX }}
+        />
+        <div
+          ref={containerRef}
+          className="h-full overflow-y-auto snap-y snap-mandatory"
+        >
+          {sections.map((section, index) => (
+            <Section
+              key={section.id}
+              {...section}
+              isActive={index === activeSection}
+              onButtonClick={() => setFormOpen(true)}
+            />
+          ))}
+          <ContactSection
+            isActive={sections.length === activeSection}
             onButtonClick={() => setFormOpen(true)}
           />
-        ))}
-        <ContactSection
-          isActive={sections.length === activeSection}
-          onButtonClick={() => setFormOpen(true)}
-        />
-      </div>
+        </div>
+      </Layout>
       <LeadForm open={formOpen} onClose={() => setFormOpen(false)} />
-    </Layout>
+    </>
   )
 }

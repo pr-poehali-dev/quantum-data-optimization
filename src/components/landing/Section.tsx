@@ -6,25 +6,25 @@ export default function Section({ id, title, subtitle, content, isActive, showBu
   const accentColor = accent || '#FF4D00'
 
   return (
-    <section id={id} className={`relative h-screen w-full snap-start flex flex-col justify-center overflow-hidden ${isActive ? 'z-10' : 'z-0'}`}>
+    <section id={id} className={`relative h-screen w-full snap-start flex flex-col justify-center ${isActive ? 'z-10' : 'z-0'}`}>
       {image && (
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 pointer-events-none">
           <img src={image} alt="" className="w-full h-full object-cover opacity-20" />
           <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, rgba(0,0,0,0.95) 40%, ${accentColor}22 100%)` }} />
         </div>
       )}
 
       {!image && (
-        <div className="absolute inset-0 z-0" style={{ background: `linear-gradient(135deg, #000000 60%, ${accentColor}18 100%)` }} />
+        <div className="absolute inset-0 z-0 pointer-events-none" style={{ background: `linear-gradient(135deg, #000000 60%, ${accentColor}18 100%)` }} />
       )}
 
-      <div className="absolute left-0 top-0 bottom-0 w-1" style={{ background: `linear-gradient(to bottom, transparent, ${accentColor}, transparent)` }} />
+      <div className="absolute left-0 top-0 bottom-0 w-1 pointer-events-none" style={{ background: `linear-gradient(to bottom, transparent, ${accentColor}, transparent)` }} />
 
       <div className="relative z-10 flex flex-col lg:flex-row items-center gap-12 px-8 md:px-16 lg:px-24 w-full max-w-7xl mx-auto">
         <div className="flex-1 min-w-0">
           {subtitle && (
             <motion.div
-              className="mb-6"
+              className="mb-6 pointer-events-none"
               initial={{ opacity: 0, y: 20 }}
               animate={isActive ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5 }}
@@ -34,7 +34,7 @@ export default function Section({ id, title, subtitle, content, isActive, showBu
           )}
 
           <motion.h2
-            className="text-4xl md:text-5xl lg:text-[4.5rem] xl:text-[5.5rem] font-bold leading-[1.1] tracking-tight text-white"
+            className="text-4xl md:text-5xl lg:text-[4.5rem] xl:text-[5.5rem] font-bold leading-[1.1] tracking-tight text-white pointer-events-none"
             initial={{ opacity: 0, y: 50 }}
             animate={isActive ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
@@ -48,7 +48,7 @@ export default function Section({ id, title, subtitle, content, isActive, showBu
 
           {content && (
             <motion.p
-              className="text-lg md:text-xl max-w-xl mt-5 text-neutral-300 leading-relaxed"
+              className="text-lg md:text-xl max-w-xl mt-5 text-neutral-300 leading-relaxed pointer-events-none"
               initial={{ opacity: 0, y: 30 }}
               animate={isActive ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -59,7 +59,7 @@ export default function Section({ id, title, subtitle, content, isActive, showBu
 
           {bullets && (
             <motion.ul
-              className="mt-6 space-y-2"
+              className="mt-6 space-y-2 pointer-events-none"
               initial={{ opacity: 0, y: 20 }}
               animate={isActive ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.3 }}
@@ -75,7 +75,7 @@ export default function Section({ id, title, subtitle, content, isActive, showBu
 
           {stats && (
             <motion.div
-              className="flex flex-wrap gap-6 mt-8"
+              className="flex flex-wrap gap-6 mt-8 pointer-events-none"
               initial={{ opacity: 0, y: 20 }}
               animate={isActive ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.35 }}
@@ -90,7 +90,7 @@ export default function Section({ id, title, subtitle, content, isActive, showBu
           )}
 
           {showButton && (
-            <div className="mt-10">
+            <div className="mt-10 relative z-20">
               <Button
                 size="lg"
                 className="text-white border-0 font-semibold px-8 py-6 text-base"
@@ -105,7 +105,7 @@ export default function Section({ id, title, subtitle, content, isActive, showBu
 
         {image && (
           <motion.div
-            className="hidden lg:block flex-shrink-0 w-[420px] h-[320px] rounded-2xl overflow-hidden"
+            className="hidden lg:block flex-shrink-0 w-[420px] h-[320px] rounded-2xl overflow-hidden pointer-events-none"
             initial={{ opacity: 0, x: 60 }}
             animate={isActive ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}

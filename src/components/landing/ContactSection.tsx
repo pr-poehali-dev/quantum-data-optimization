@@ -32,7 +32,7 @@ const contacts = [
 
 export default function ContactSection({ isActive, onButtonClick }: ContactSectionProps) {
   return (
-    <section className="relative h-screen w-full snap-start flex flex-col justify-center overflow-hidden">
+    <section className={`relative h-screen w-full snap-start flex flex-col justify-center overflow-hidden ${isActive ? 'z-10' : 'z-0'}`}>
       <div className="absolute inset-0 z-0">
         <img src={CONTACT_IMAGE} alt="" className="w-full h-full object-cover opacity-20" />
         <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(0,0,0,0.95) 40%, #FF4D0022 100%)" }} />

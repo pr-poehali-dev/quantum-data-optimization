@@ -6,7 +6,7 @@ export default function Section({ id, title, subtitle, content, isActive, showBu
   const accentColor = accent || '#FF4D00'
 
   return (
-    <section id={id} className="relative h-screen w-full snap-start flex flex-col justify-center overflow-hidden">
+    <section id={id} className={`relative h-screen w-full snap-start flex flex-col justify-center overflow-hidden ${isActive ? 'z-10' : 'z-0'}`}>
       {image && (
         <div className="absolute inset-0 z-0">
           <img src={image} alt="" className="w-full h-full object-cover opacity-20" />
